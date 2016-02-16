@@ -1,0 +1,35 @@
+import matplotlib.pyplot as plt
+import math
+
+g=9.8
+m=68.1
+c=12.5
+ti=0
+tf=2
+vi=0.0
+vf=0.0
+tiempo=[]
+velo=[]
+tiempo1=[]
+vel=[]
+
+for t in range (0,151):
+    tiempo.append(t)
+    v = ((m*g/c)*(1-math.exp(-(c/m)*t)))
+    velo.append(v)
+
+while t1<150:
+    vf = vi + (g-(c/m)*vi)*(tf-ti)
+    vel.append(vf)
+    tiempo1.append(ti)
+    ti = tf
+    tf = tf+2
+    vi = vf
+      
+plt.plot(tiempo1,vel,'ro')
+plt.plot(tiempo,velo)
+plt.ylabel('Velocidad (m/s)')
+plt.xlabel('Tiempo (s)')
+plt.grid(True)
+plt.axis([0,40,0,61])
+plt.show() 
